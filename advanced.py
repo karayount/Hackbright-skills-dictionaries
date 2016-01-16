@@ -89,6 +89,8 @@ def adv_alpha_sort_by_word_length(words):
 
     # interestingly, without sorting ascending_length, the test passed, and I
     #   didn't get a failure until I tested with a word longer than 12 letters.
+    #   Research and discussion with Software Engineer Husband led me to believe
+    #   this is related to the way dictionaries are implemented.
     return sorted(ascending_length)
 
 
