@@ -218,7 +218,9 @@ def sort_by_word_length(words):
     for key in words_with_lengths:
         ascending_length.append((key, words_with_lengths[key]))
 
-    return ascending_length
+    # interestingly, without sorting ascending_length, the test passed, and I
+    #   didn't get a failure until I tested with a word longer than 12 letters.
+    return sorted(ascending_length)
 
 
 def get_sum_zero_pairs(input_list):
@@ -250,7 +252,18 @@ def get_sum_zero_pairs(input_list):
 
     """
 
-    return []
+    # loop through input list, if negative version of current number is also
+    #   in list, add pair (ordered smallest to largest) to set as a tuple
+    zero_sum_pairs = set([])
+    for number in input_list:
+        if number*-1 in input_list:
+            zero_sum_pairs.add((-abs(number), abs(number)))
+
+    # convert set to list, since function should return a list
+    zero_sum_pairs = list(zero_sum_pairs)
+
+    # sort list based on 1st element of each tuple (the negative number)
+    return sorted(zero_sum_pairs)
 
 
 ##############################################################################
