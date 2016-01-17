@@ -30,15 +30,14 @@ def top_characters(input_string):
     """
 
     # create dictionary with character keys and appearances (int) value
-    working_string = input_string
     character_appearances = {}
-    for index in range(len(working_string)):
+    for index in range(len(input_string)):
         # ignore endline and space characters
-        if working_string[index] != "\n" and working_string[index] != " ":
-            if working_string[index] in character_appearances:
-                character_appearances[working_string[index]] += 1
+        if input_string[index] != "\n" and input_string[index] != " ":
+            if input_string[index] in character_appearances:
+                character_appearances[input_string[index]] += 1
             else:
-                character_appearances[working_string[index]] = 1
+                character_appearances[input_string[index]] = 1
 
     # most common letter has "how_common" appearances
     how_common = max(character_appearances.values())
@@ -55,7 +54,6 @@ def top_characters(input_string):
 
 # FIXME: fix the "now try doing it with only one call to sort() or sorted()"
 # Too hard.
-# [Kara] The above comment works for given input, see comment below
 def adv_alpha_sort_by_word_length(words):
     """Return list of word-lengths and words.
 
